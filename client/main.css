@@ -4,7 +4,7 @@ body {
 	padding-top:50px; 
 }
 
-h1{
+h1, h2{
 	text-align: center;
 }
 
@@ -37,14 +37,8 @@ h1{
 	border-color: #ff5757;
 }
 
-.question-group {
-	margin-bottom:20px;
-	background:#EEE;
-	padding:20px;
-}
-
-.question-group label {
-	font-size:18px;
+.well {
+	background-color: #fce3eb;
 }
 
 .polls {
@@ -56,4 +50,21 @@ h1{
 .poll {
 	width:25%;
 	margin:20px;
+}
+
+.addButton {
+    width: 40%;
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.answerButton {
+	max-width: 500px;
+	padding-top: 15px;
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }

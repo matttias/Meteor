@@ -3,21 +3,37 @@
 	<title>Küsitlus</title>
 </head>
 
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<h1>Küsitlus</h1>
-				{{ >pollForm }}
-			</div>
-		</div>
-	</div>  
+<template name="home">
+	<h1>Küsitlus</h1>
+	<h2>Vasta küsimustele</h2>
 	<div class="polls">
 		{{ #each polls }}
 		{{ >poll }}
 		{{ /each }}
+	</div>  
+	<div class="addButton">  
+	  <form action="{{pathFor route='add'}}">
+         <button type="submit" class="btn btn-lg btn-primary btn-block">Lisa uus küsitlus</button>
+      </form>
 	</div>
-</body>
+</template>
+
+<template name="add">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h1>Küsitlus</h1>
+				<h2>Sisesta küsimus ja vastused</h2>
+				{{ >pollForm }}
+			</div>
+		</div>
+	</div>
+	<div class="answerButton">  
+	  <form action="{{pathFor route='home'}}">
+         <button type="submit" class="btn btn-lg btn-primary btn-block">Vasta küsitlustele</button>
+      </form>
+	</div>
+</template>
 
 <template name="pollForm">
 	<form> 
@@ -52,3 +68,4 @@
 		{{ /each }}
 	</div>
 </template>
+

@@ -1,12 +1,20 @@
 import './main.html';
 import '/collections/polls.js';
 
+//LEHEDE VAHELINE LIIKUMINE
+Router.route('/', {
+    name: 'home',
+    template: 'home'
+});
+Router.route('/add');
+
 //OTSIB ÜLES KÕIK KÜSITLUSED
-Template.body.helpers({
+Template.home.helpers({
 	polls: function() {
 		return Polls.find();
 	}
 });
+
 
 //LISAB INDEXID
 UI.registerHelper('indexedArray', function(context, options) {
@@ -34,14 +42,17 @@ Template.pollForm.events({
 				{  text: event.target.choice3.value, votes: 0 }
 			]
 		};    
-		// LOOB UUE KÜSITLUSE
+		//LOOB UUE KÜSITLUSE
 		Polls.insert(newPoll);
+		//VIIB TAGASI KODULEHELE
+		Router.go('home');
 	}
 });
 
 
 Template.poll.events({
-
+	
+	
 	//VASTUSE VALIMINE
 	'click .vote': function(event) {
 
